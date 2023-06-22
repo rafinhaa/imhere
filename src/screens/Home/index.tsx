@@ -1,12 +1,21 @@
 import { FC } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components";
 
 const Home: FC = () => {
+  const participants = ["John Doe", "Jane Doe", "Bob Doe", "Jenny Doe"];
   const handleParticipantAdd = () => {};
 
-  const handleParticipantRemove = (name: string) => {};
+  const handleParticipantRemove = (name: string) => {
+    participants.splice(participants.indexOf(name), 1);
+  };
 
   return (
     <View style={styles.container}>
@@ -22,8 +31,29 @@ const Home: FC = () => {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <Participant name="John Doe" onRemove={() => handleParticipantRemove()} />
-      <Participant name="Jane Doe" onRemove={() => handleParticipantRemove()} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {participants.map((participant) => (
+          <Participant
+            key={participant}
+            name={participant}
+            onRemove={handleParticipantRemove}
+          />
+        ))}
+        {participants.map((participant) => (
+          <Participant
+            key={participant}
+            name={participant}
+            onRemove={handleParticipantRemove}
+          />
+        ))}
+        {participants.map((participant) => (
+          <Participant
+            key={participant}
+            name={participant}
+            onRemove={handleParticipantRemove}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 };
