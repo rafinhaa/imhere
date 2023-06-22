@@ -2,9 +2,13 @@ import { FC } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
-const Participant: FC = () => (
+type ParticipantProps = {
+  name: string;
+};
+
+const Participant: FC<ParticipantProps> = ({ name }) => (
   <View style={styles.container}>
-    <Text style={styles.name}>Participant</Text>
+    <Text style={styles.name}>{name}</Text>
     <TouchableOpacity style={styles.button} onPress={() => {}}>
       <Text style={styles.buttonText}>-</Text>
     </TouchableOpacity>

@@ -20,8 +20,8 @@ const Home: FC = () => {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <Participant />
-      <Participant />
+      <Participant name="John Doe" />
+      <Participant name="Jane Doe" />
     </View>
   );
 };
