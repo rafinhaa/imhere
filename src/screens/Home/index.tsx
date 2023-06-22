@@ -6,6 +6,8 @@ import { Participant } from "../../components";
 const Home: FC = () => {
   const handleParticipantAdd = () => {};
 
+  const handleParticipantRemove = (name: string) => {};
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do evento</Text>
@@ -20,8 +22,8 @@ const Home: FC = () => {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <Participant name="John Doe" />
-      <Participant name="Jane Doe" />
+      <Participant name="John Doe" onRemove={() => handleParticipantRemove()} />
+      <Participant name="Jane Doe" onRemove={() => handleParticipantRemove()} />
     </View>
   );
 };
