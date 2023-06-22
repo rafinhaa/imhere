@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   View,
   Text,
@@ -11,14 +11,20 @@ import { styles } from "./styles";
 import { Participant } from "../../components";
 
 const Home: FC = () => {
-  const participants = ["John Doe", "Jane Doe", "Bob Doe", "Jenny Doe"];
+  const [participants, setParticipants] = useState<string[]>([
+    "John Doe",
+    "Jane Doe",
+    "Bob Doe",
+    "Jenny Doe",
+  ]);
+
   const handleParticipantAdd = () => {
     if (participants.includes("Jenny Doe")) {
       Alert.alert("Erro!", "Já existe participante com esse nome!");
       return;
     }
 
-    participants.push("Jenny Doe");
+    setParticipants((oldState) => [...oldState, "Jenny Doe"]);
   };
 
   const handleParticipantRemove = (name: string) => {
