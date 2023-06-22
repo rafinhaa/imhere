@@ -1,8 +1,10 @@
 import { FC } from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
 const Home: FC = () => {
+  const handleParticipantAdd = () => {};
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do evento</Text>
@@ -12,6 +14,9 @@ const Home: FC = () => {
         placeholder="Nome do evento"
         placeholderTextColor={"#6B6B6B"}
       />
+      <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+        <Text style={styles.buttonText}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 };
