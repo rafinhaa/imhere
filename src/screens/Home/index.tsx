@@ -30,7 +30,10 @@ const Home: FC = () => {
     Alert.alert("Remover", `Deseja remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () => participants.splice(participants.indexOf(name), 1),
+        onPress: () =>
+          setParticipants((oldState) =>
+            oldState.filter((item) => item !== name)
+          ),
       },
       {
         text: "Não",
